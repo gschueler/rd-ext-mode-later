@@ -12,20 +12,22 @@ sourceCompatibility = 1.8
 repositories {
     mavenLocal()
     mavenCentral()
-    maven { url "https://jitpack.io" }
+    maven {
+        url "https://rundeck.bintray.com/maven"
+    }
 }
 
-//ext.toolbeltGroup = 'com.github.rundeck.cli-toolbelt'
 ext.toolbeltGroup = 'org.rundeck.cli-toolbelt'
-ext.toolbeltVersion = '0.2.7-SNAPSHOT'
+ext.toolbeltVersion = '0.2.10'
+ext.rdVersion='1.1.9-SNAPSHOT'
 
 dependencies {
 
     compileOnly "org.projectlombok:lombok:1.18.8"
     annotationProcessor "org.projectlombok:lombok:1.16.16"
 
-    compile "org.rundeck.cli:rd-cli-lib:1.1.9-SNAPSHOT"
-    compile "org.rundeck.api:rd-api-client:1.1.9-SNAPSHOT"
+    compile "org.rundeck.cli:rd-cli-lib:${rdVersion}"
+    compile "org.rundeck.api:rd-api-client:${rdVersion}"
 
     compile "$toolbeltGroup:toolbelt:$toolbeltVersion"
     compile "$toolbeltGroup:toolbelt-snakeyaml:$toolbeltVersion"
@@ -37,9 +39,8 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-simplexml:2.7.1'
 
 
-    //testCompile project(":rd-cli-lib"), project(":rd-api-client")
-    testCompile "org.rundeck.cli:rd-cli-lib:1.1.9-SNAPSHOT"
-    testCompile "org.rundeck.api:rd-api-client:1.1.9-SNAPSHOT"
+    testCompile "org.rundeck.cli:rd-cli-lib:${rdVersion}"
+    testCompile "org.rundeck.api:rd-api-client:${rdVersion}"
 
     testCompile group: 'junit', name: 'junit', version: '4.12'
     testCompile 'com.squareup.retrofit2:retrofit-mock:2.1.0'
