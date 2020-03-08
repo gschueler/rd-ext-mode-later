@@ -11,26 +11,24 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenLocal()
+    jcenter()
     mavenCentral()
     maven {
         url "https://rundeck.bintray.com/maven"
     }
 }
 
-ext.toolbeltGroup = 'org.rundeck.cli-toolbelt'
-ext.toolbeltVersion = '0.2.11-SNAPSHOT'
-ext.rdVersion='1.1.9-SNAPSHOT'
+ext.toolbeltVersion = '0.2.11'
+ext.rdVersion='1.2.2'
 
 dependencies {
 
-    compileOnly "org.projectlombok:lombok:1.18.8"
-    annotationProcessor "org.projectlombok:lombok:1.16.16"
+    compileOnly "org.projectlombok:lombok:1.18.12"
+    annotationProcessor "org.projectlombok:lombok:1.18.12"
 
     api "org.rundeck.cli:rd-cli-lib:${rdVersion}"
+    api "org.rundeck.cli-toolbelt:toolbelt-jewelcli:$toolbeltVersion"
     implementation "org.rundeck.api:rd-api-client:${rdVersion}"
-
-    api "$toolbeltGroup:toolbelt:$toolbeltVersion"
-    api "$toolbeltGroup:toolbelt-jewelcli:$toolbeltVersion"
 
     implementation 'com.squareup.retrofit2:retrofit:2.7.1'
     implementation 'com.squareup.retrofit2:converter-jackson:2.7.1'
