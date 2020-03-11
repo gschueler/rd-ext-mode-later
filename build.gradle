@@ -18,8 +18,8 @@ repositories {
     }
 }
 
-ext.toolbeltVersion = '0.2.11'
-ext.rdVersion='1.2.2'
+ext.toolbeltVersion = '0.2.12'
+ext.rdVersion='1.2.3'
 
 dependencies {
 
